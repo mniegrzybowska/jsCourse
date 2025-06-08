@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+	<meta charset="UTF-8">
+	<title>Manipulacja DOM</title>
+</head>
+<body>
+<h2>Lista owoców:</h2>
+<ul id="lista-owocow">
+	<li>Jabłko</li>
+	<li>Banana</li>
+</ul>
+
+<button onclick="addFruit()">Dodaj owoc</button>
+
+<script>
+	function addFruit() {
+		// Tworzymy nowy element <li>
+		const listElement = document.createElement("li");
+		listElement.textContent = "Gruszka";
+
+		// Dodajemy go do istniejącej listy
+		const lista = document.getElementById("lista-owocow");
+		lista.appendChild(listElement);
+	}
+</script>
+</body>
+</html>

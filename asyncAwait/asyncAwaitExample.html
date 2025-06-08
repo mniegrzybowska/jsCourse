@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+	<meta charset="UTF-8">
+	<title>Przykład async/await</title>
+</head>
+<body>
+
+<h1>Async/Await – przykład</h1>
+<button onclick="loadData()">Załaduj dane</button>
+<div id="result">Tutaj będą dane</div>
+
+<script>
+	// Funkcja zwraca dane po opóźnieniu
+	async function getData() {
+		await new Promise(resolve => setTimeout(resolve, 2000));
+		return "Dane zostały załadowane!";
+	}
+
+	// Funkcja wywoływana po kliknięciu
+	async function loadData() {
+		document.getElementById("result").textContent = "Ładowanie...";
+		const data = await getData();
+		document.getElementById("result").textContent = data;
+	}
+</script>
+
+</body>
+</html>
