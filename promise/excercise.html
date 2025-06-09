@@ -25,7 +25,9 @@
 		document.getElementById("result").textContent = "Ładowanie...";
 		const data = await getData();
 		// wyświetl dane, ale dodaj do nich powitanie użytkownika
-		document.getElementById("result").textContent = data;
+		getData().then(function (data) {
+			document.getElementById("result").textContent = data;
+		});
 	}
 </script>
 

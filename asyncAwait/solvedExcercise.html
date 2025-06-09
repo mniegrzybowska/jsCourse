@@ -1,0 +1,31 @@
+<!-- ZADANIE -->
+<!-- Wyświetl imiona użytkowników na stronie, gdy tylko dane będą gotowe -->
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+	<meta charset="UTF-8">
+	<title>Przykład async/await</title>
+</head>
+<body>
+
+<h1>Async/Await – przykład</h1>
+<button onclick="loadData()">Załaduj dane</button>
+<div id="result">Tutaj będą dane</div>
+
+<script>
+	async function getData() {
+		await new Promise(resolve => setTimeout(resolve, 2000));
+		// niech funkcja zwróci tablicę z danymi, na przykład z imionami
+		return ["Ania", "Darek", "Renata"];
+	}
+
+	async function loadData() {
+		document.getElementById("result").textContent = "Ładowanie...";
+		const data = await getData();
+		// wyświetl dane używając metody join na tablicy: data.join(", ")
+		document.getElementById("result").textContent = data.join(", ")
+	}
+</script>
+
+</body>
+</html>

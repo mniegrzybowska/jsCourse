@@ -1,3 +1,5 @@
+<!-- ZADANIE -->
+<!-- Wyświetl imię użytkownika na stronie, gdy tylko dane będą gotowe -->
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -5,7 +7,6 @@
 	<title>Przykład async/await</title>
 </head>
 <body>
-
 <h1>Przykład async/await</h1>
 <button onclick="loadData()">Załaduj dane</button>
 <div id="result">Tutaj będą dane</div>
@@ -14,17 +15,19 @@
 	function getData() {
 		return new Promise((resolve) => {
 			setTimeout(() => {
-				resolve("Dane zostały załadowane!");
+				// zwróć inne dane: imię użytkownika
+				resolve("Monika");
 			}, 2000);
 		});
 	}
 
 	async function loadData() {
 		document.getElementById("result").textContent = "Ładowanie...";
+		const data = await getData();
+		// wyświetl dane, ale dodaj do nich powitanie użytkownika
 		getData().then(function (data) {
-			document.getElementById("result").textContent = data;
+			document.getElementById("result").textContent = "Hello " + data;
 		});
-
 	}
 </script>
 
